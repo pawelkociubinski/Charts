@@ -1,0 +1,42 @@
+{
+  "companies": [
+    {
+      "name": "Arizona Water",
+      "description": "",
+      "user_id": 1,
+      "id": 1
+    },
+    {
+      "name": "The Blue Company",
+      "description": "",
+      "user_id": 2,
+      "id": 2
+    }
+  ],
+  "switches": [
+    {
+      "source": 1,
+      "target": 2,
+      "loss": {
+        "m_a": 2,
+        "move_to_self_supply": 3,
+        "group_switches": 9,
+        "consolidation": 6,
+        "general_switches": 7,
+        "other": 8
+      }
+    },
+    {
+      "source": 2,
+      "target": 1,
+      "loss": {
+        "m_a": 3,
+        "move_to_self_supply": 1,
+        "group_switches": 4,
+        "consolidation": 9,
+        "general_switches": 5,
+        "other": 2
+      }
+    }
+  ]
+}
