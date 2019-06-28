@@ -7,10 +7,8 @@ import React, {Fragment} from 'react';
 import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
 import {ConnectedRouter} from 'connected-react-router';
-import store, {history} from './configureStore';
+import store, {history} from './store';
 import App from './pages/App';
-
-import {Route} from 'react-router';
 
 const ROOT_NODE = document.getElementById('root');
 

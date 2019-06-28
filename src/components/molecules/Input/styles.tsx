@@ -1,6 +1,5 @@
-import styled, { css } from "styled-components";
-import { variants } from "../../../helpers/variants";
-
+import styled, {css} from 'styled-components';
+import {variants} from '../../../helpers/variants';
 
 // export const ALABASTER = "#FAFAFA";
 // export const BRIGHT_GRAY = "#3B434D";
@@ -16,14 +15,20 @@ import { variants } from "../../../helpers/variants";
 // #FFA080", "#DF97FB", "#6DE373", "#FFD65B", "#7EAAE1", "#55E2D9"
 
 const color = variants({
-  default: { default: "#CED0DA", active: "#4095FF", disabled: "blue", error: "#d64242", valid: "#42d642" },
+  default: {
+    default: '#CED0DA',
+    active: '#4095FF',
+    disabled: 'blue',
+    error: '#d64242',
+    valid: '#42d642',
+  },
 });
 
 export const Container = styled.div`
-  border-radius: 4px;
+  border-radius: 5px;
   border: 1px solid ${color};
   margin-top: 9px;
-  margin-bottom: 18px;
+  margin-bottom: 25px;
   position: relative;
   transition: all 0.3s;
   width: 100%;
@@ -38,10 +43,10 @@ export const Label = styled.div`
   transform: translateY(-50%) scale(1);
   transition-delay: 0.3s;
   transition: all 0.3s;
-  ${({ lifted }) => {
+  ${({lifted}) => {
     if (lifted) {
       return css`
-        background-color: #FFFFFF;
+        background-color: #ffffff;
         font-size: 12px;
         left: 10px;
         padding: 0 5px;

@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import Button from "../../components/atoms/Button";
+import styled from 'styled-components';
+import Button from '../../components/atoms/Button';
 
 export const Container = styled.div`
   align-items: center;
@@ -11,7 +11,7 @@ export const Container = styled.div`
 
 export const Wrapper = styled.div`
   align-items: center;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   border-radius: 5px;
   display: flex;
   flex-direction: column;
@@ -29,9 +29,9 @@ export const Submit = styled(Button)`
 
 export const Error = styled.div`
   background-color: #d64242;
-  color: #FFF;
+  color: #fff;
   padding: 10px;
-  border-radius: 4px;
+  border-radius: 5px;
   width: 100%;
   text-align: center;
 `;

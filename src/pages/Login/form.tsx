@@ -1,27 +1,26 @@
-import React, { useState } from "react";
-import Input from "../../components/molecules/Input";
-
+import React, {useState} from 'react';
+import Input from '../../components/molecules/Input';
 
 export const enhancements = {
   text: {
     isDirty: false,
     isFocused: false,
     isValid: false,
-    value: "",
-    validator: (value) => !value.length,
-    warning: "Input cannot be empty",
+    value: '',
+    validator: value => !value.length,
+    warning: 'Input cannot be empty',
   },
   password: {
     isDirty: false,
     isFocused: false,
     isValid: false,
-    value: "",
-    validator: (value) => !value.length,
-    warning: "Password cannot be empty",
+    value: '',
+    validator: value => !value.length,
+    warning: 'Password cannot be empty',
   },
 };
 
-export const enhance = (schema) => {
+export const enhance = schema => {
   return {
     ...enhancements[schema.type],
     ...schema,
@@ -33,8 +32,8 @@ const components = {
   password: Input,
 };
 
-export const Field = (props) => {
-  const field = props.state.find((field) => props.name === field.name);
+export const Field = props => {
+  const field = props.state.find(field => props.name === field.name);
   const Component = components[field.type];
 
   return (
@@ -48,26 +47,12 @@ export const Field = (props) => {
   );
 };
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-export const useForm = (form) => {
-  const initialState = form.map((field) => enhance(field));
+export const useForm = form => {
+  const initialState = form.map(field => enhance(field));
   const [state, setState] = useState(initialState);
 
-  const onChange = (event) => {
-    const index = state.findIndex((field) => field.name === event.target.name);
+  const onChange = event => {
+    const index = state.findIndex(field => field.name === event.target.name);
 
     setState([
       ...state.slice(0, index),
@@ -81,8 +66,8 @@ export const useForm = (form) => {
     ]);
   };
 
-  const onFocus = (event) => {
-    const index = state.findIndex((field) => field.name === event.target.name);
+  const onFocus = event => {
+    const index = state.findIndex(field => field.name === event.target.name);
 
     setState([
       ...state.slice(0, index),
@@ -92,10 +77,10 @@ export const useForm = (form) => {
       },
       ...state.slice(index + 1),
     ]);
-  }
+  };
 
-  const onBlur = (event) => {
-    const index = state.findIndex((field) => field.name === event.target.name);
+  const onBlur = event => {
+    const index = state.findIndex(field => field.name === event.target.name);
 
     setState([
       ...state.slice(0, index),
@@ -105,7 +90,7 @@ export const useForm = (form) => {
       },
       ...state.slice(index + 1),
     ]);
-  }
+  };
 
   return [state, onChange, onFocus, onBlur];
 };

@@ -1,12 +1,16 @@
-import React, {useState} from 'react';
+import React, {useState, Fragment} from 'react';
 
 import Sidebar from '../../components/organisms/Sidebar';
+
+import {Route, Redirect} from 'react-router';
 
 import {Container, Test, Content, Tile} from './styles';
 
 import UploadBar from '../../components/molecules/UploadBar';
+import UploadModal from '../UploadModal';
 import Donut from '../../components/molecules/Donut';
 import {reduce, map} from 'lodash';
+import {X} from '../../components/organisms/Modal/styles';
 
 const initialValue = {
   m_a: 0,
@@ -81,8 +85,11 @@ interface PieChunk {
 // const initialState = {
 //   hoveredChunk: null,
 // };
+// import {useSelector} from 'react-redux';
+// import {AppState} from '../../selectors';
 
 export default () => {
+  // const {_wefwef, location} = useSelector(AppState);
   // const [ state, setState ] = useState(initialState);
 
   // const handleHover = (index: number): void => {
@@ -90,21 +97,24 @@ export default () => {
   // }
 
   return (
-    <Container>
-      <Sidebar />
-      <Test>
-        <UploadBar />
-        <Content>
-          <Tile>
-            {/* <Donut
-              data={pieChunks}
-              hoveredSegment={state.hoveredSegment}
-              mouseEvents
-              onHover={this.handleHover}
-            /> */}
-          </Tile>
-        </Content>
-      </Test>
-    </Container>
+    <Fragment>
+      <Container>
+        <Sidebar />
+        <Test>
+          <UploadBar />
+          <Content>
+            <Tile>
+              {/* <Donut
+                data={pieChunks}
+                hoveredSegment={state.hoveredSegment}
+                mouseEvents
+                onHover={this.handleHover}
+              /> */}
+            </Tile>
+          </Content>
+        </Test>
+      </Container>
+      <Route path="/dashboard/upload" component={UploadModal} />
+    </Fragment>
   );
 };

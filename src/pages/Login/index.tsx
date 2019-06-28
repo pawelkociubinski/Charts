@@ -7,6 +7,8 @@ import {useActions} from '../../helpers/redux-helpers';
 // Actions
 import {authenticate} from '../../actions';
 
+import {CSSTransition, TransitionGroup} from 'react-transition-group';
+
 const forms = [
   {
     type: 'text',
@@ -40,7 +42,13 @@ export default () => {
     <Container>
       <Wrapper>
         <Headline>Log in to your account</Headline>
-        {error && <Error>There was a problem with your login.</Error>}
+        {error && (
+          <TransitionGroup>
+            <CSSTransition key={1} classNames="fade" timeout={500}>
+              <Error>There was a problem with your login.</Error>
+            </CSSTransition>
+          </TransitionGroup>
+        )}
         <Form>
           {formState.map(input => (
             <Field
